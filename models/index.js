@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const sequelize = new Sequelize(
-    process.env.DB_URL
+    "mysql://admin:admin@localhost/restaurant"
 );
 
 const Customer = require('./Customer')(sequelize);

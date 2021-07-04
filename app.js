@@ -20,6 +20,17 @@ app.get('/dishes/:id',(req, res)=>{
         })
 });
 
+app.post('/dishes', (req, res )=> {
+    console.log("dish", req)
+    sequelize.models.Dish.create({
+        name: req.body.name,
+        description : req.body.description,
+        price: req.body.price
+    }).then( dishes =>{
+        res.status(200).json(dishes);
+    })
+});
+
 //Order 
 app.get('/order',(req, res)=>{
     sequelize.models.Order.findAll()
